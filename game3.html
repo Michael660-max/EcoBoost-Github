@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html>    
+
+
+<head>
+    <meta lang="en"> 
+  <title>Minigame 3</title>
+  
+      <link rel="stylesheet" href="game3Style.css">
+      <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+      <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+      <script src="script2.js" defer></script>
+        
+      
+</head>
+
+  <!-- Contains the play button and the GAME NAME -->
+
+<body >
+  <header> 
+
+      <div id="mainHead"> 
+        <h1 id="game3Name"> Clean Energy</h1>
+    </div>
+  
+  </header>
+
+<section class="section">
+      <div id="scoreContainer" id='grid0' class="hide">
+        <div>Score</div>
+        <div id="counter" class="hide"></div>
+      </div>
+      <div class="container">
+    <!-- Will be hidden when game starts, revealed after "Play" is pressed-->
+        <div id="questionContainer" class="hide">
+        <div id="question"> Question </div>
+          <div id="optionButtons" class="grid">
+          <button class="option"></button>
+          <button class="option"></button>
+          </div>
+        </div>
+        <div class="actionButtons">
+        <!-- Action buttons -->
+          <button id="startButton"> Start </button>
+           <!-- Will be hidden when game starts, revealed after "option" is pressed-->
+          <button id="nextButton" class="hide"> Next </button> 
+        </div>
+      </div>
+</section>
+
+
+</body>
+
+</html>
+
+

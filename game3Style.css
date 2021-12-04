@@ -1,0 +1,220 @@
+
+/* To prevent the user from being to able to highlight */
+*, *::before, *::after { 
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+      
+}
+
+:root{ 
+    /* Very similar to html, but has priority */
+    --hue-nuetral: 200;
+    --hue-wrong: 0; 
+    --hue-correct: 145;
+}
+
+body{ 
+    --hue: var(--hue-nuetral); 
+    height: 100vh;
+    width: 100vw;
+    
+    background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
+    
+
+}
+
+/* ------------------- Background change choosing a answer  Correct(Green), Wrong(Red) -----------------*/
+body.correct{ 
+    --hue: var(--hue-correct);
+
+}
+
+body.wrong{ 
+    --hue: var(--hue-wrong);
+}
+
+
+
+/* ------------------- Header   -----------------*/
+header{ 
+    height: 30vh;
+
+}
+#mainHead{ 
+    display: flex;
+    justify-content: center; /* Centering content on the x-axis*/
+    align-items: center; /* Centering content on the y-axis*/
+    margin: auto;
+    font-size:2em;
+    text-align: center
+     
+}
+
+#game3Name{ 
+    text-shadow: 2px 2px whitesmoke;
+
+}
+
+/* ------------------- Section2  -----------------*/
+
+
+
+.section{  /* The section that hold all game items and buttons */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
+    /* Main container for content */
+}
+
+/* ------------------- Score    -----------------*/
+#scoreContainer{
+    height: 50vh;
+    padding: 20px;
+    margin-right: 5px;
+    box-shadow: 0 0 20px 2px;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+
+/* ------------------- Questions and options   -----------------*/
+.container{ 
+    height: 50vh;
+    padding: 20px;
+    display: flex;
+    box-shadow: 0 0 20px 2px;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#question{ 
+    font-size: 2em;
+}
+
+#grid0{ 
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+/* Grid for the option buttons */
+.grid{ 
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: -20px 0;
+}
+
+/*---------------------- Start Button and Next Button ----------------------*/
+#startButton { 
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin-bottom: 30px;
+    padding: 10px 20px 10px 20px;
+    width: fit-content;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;  
+    position: relative; top: 120px; 
+    font-family : inherit;
+    font-size: 3em;
+}
+
+#startButton:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+    
+}
+
+#nextButton { 
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin-bottom: 30px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 20px; 
+    padding-right: 20px;
+    width: fit-content;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;  
+    position: relative; top: 120px; 
+    font-family : inherit;
+    font-size: 3em;
+
+}
+
+#nextButton:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+    
+}
+
+/* ---------------- All option buttons stylying ----------*/
+.option {
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin-bottom: 30px;
+    width: 200px;
+    height: 5em;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;  
+    position: relative; top: 120px; 
+    font-family : inherit;
+    font-size: 1.5em;
+}
+
+.option:hover {
+    border-color: black;
+  }
+
+.option:active{ 
+     /* Link to next HTML page */
+     box-shadow: rgba(0, 0, 0, 0.151);
+     transform: translateY(2px)
+}
+/* ---------------- All option buttons stylying ----------*/
+
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.hide {
+    display: none;
+}
+
+
+*{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
+
+
+#gg-menu:hover{ 
+       opacity: 80%;
+       cursor: pointer;
+   }
+
+
+
+html{ 
+   
+    font-family: 'Common Pixel', sans-serif; /* Global Font */                                   
+}
+
