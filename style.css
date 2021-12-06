@@ -1,6 +1,5 @@
-html{ 
-    font-family: 'Common Pixel', sans-serif; /* Global Font */  
-    font-size: 4em;                                 
+html *{ 
+    font-family: 'Common Pixel', sans-serif; /* Global Font */                                  
 }
 
 /* ---------- Title/ Logo ---------*/ 
@@ -8,11 +7,11 @@ html{
 margin: auto;
 text-align: center;
 padding: 10vh;
-
+font-size: 100px;
 }
 
 header{ 
-    height: 30vh;
+    height: fit-content;
 }
 
 
@@ -21,8 +20,9 @@ header{
 
 
 .sec1{ 
-    height: 30vh;
-    display: grid;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
   
 }
 
@@ -61,7 +61,7 @@ a{
     box-shadow: 0 3px rgba(0, 0, 0, 0.575);
     cursor: pointer;    
     font-size: 2em;
-    font-family: 'Common Pixel', sans-serif; /* Global Font */ 
+    
 }
 
 
@@ -72,49 +72,66 @@ a{
     transform: translateY(2px)
 }
 
-/* ========================== MENU =====================*/ 
+/* ========================== MENU for links =====================*/ 
 #menu_container{ 
     position: relative;
     display: inline-block;
-    align-items: left;
-
+    
+    
 }
 
-.gg-menu{ 
+#menu_btn{ 
+    font-size: xx-large;
     position: relative;
     display: inline-block;
     cursor: pointer;
+    background-color: rgb(214, 233, 226);
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    
 }
 
-.gg-menu:hover { 
+#menu_btn:hover { 
     cursor: pointer;
 }
 
-.menu_links_container{ 
+.dropdown_content{ 
     display: none;
-    width: 100vw;
-    height: 40vh;
+    width: 100%;
+    overflow: auto;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    font-size: xx-large;
 }
 
-.gg-menu:hover .menu_links_container{ 
+.dropdown_content a{ 
+    width: min-content;
+    display:block; 
+    background-color: skyblue;
+    color: royalblue;
+    padding: 5px;
+    text-decoration: none;
+
+}
+
+.dropdown_content a:hover{ 
+    opacity: 50%;
+}
+
+#menu_container:hover .dropdown_content{ 
     display: block;
 }
 
-.menu_links_container a { 
-    background-color: skyblue;
-    padding: 20px;    
-}
+
 
 
 
 /* ========================== BODY =====================*/  
 
 body{ 
+    background-image: url("Jungle.png");
     background-color: #6abe30;
 /* JUST TO STOP USER SELECTION/ HIGHLIGHTING */
     -webkit-user-select: none;
