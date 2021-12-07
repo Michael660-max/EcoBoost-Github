@@ -26,23 +26,28 @@
   </header>
 
 <section class="section">
+  <!-- Will be hidden when game starts, revealed after "Play" is pressed-->
       <div id="scoreContainer" id='grid0' class="hide">
         <div>Score</div>
         <div id="counter" class="hide"></div>
       </div>
       <div class="container">
+        <div id="instructions" class="hide"> Hello, and welcome to "Green World".
+          In this game you will be shown 2 options for producing energy. Click
+        the option that is the cleanest and most reusable. You will be awarded points if you
+      answer correct. Click "Start" when you are ready to begin. Good luck and have fun! </div>
     <!-- Will be hidden when game starts, revealed after "Play" is pressed-->
         <div id="questionContainer" class="hide">
           <div id="question"> Question </div>
           <div id="optionButtons" class="grid">
-            <button class="option"></button>
-            <button class="option"></button>
+            <div id="option1"></div>
+            <div id="option2"></div>
           </div>
         </div>
         <div class="actionButtons">
-        <!-- Action buttons -->
+    <!-- Action buttons -->
           <button id="startButton"> Start </button>
-           <!-- Will be hidden when game starts, revealed after "option" is pressed-->
+    <!-- Will be hidden when game starts, revealed after "option" is pressed-->
           <button id="nextButton" class="hide"> Next </button> 
         </div>
       </div>
