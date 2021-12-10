@@ -1,30 +1,44 @@
 
+const aboutContainer = document.getElementById('aboutContainer')
+const aboutSection = document.getElementById("aboutSection")
+const aboutBtn = document.getElementById("aboutBtn")
+const sec1 = document.getElementById('sec1')
+const header = document.getElementById("header")
+const closeAbout = document.getElementById("closeAbout")
+const aboutText = document.getElementById("aboutText")
 
 /** Creating the canvas, adjusted to windows height and width */
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  button = createButton('click me');
-  button.position(0, 0);
-  img = loadImage('solar.jpg'); // Load the image
-  
-  
+
+function showDiv(e){ 
+  e.classList.remove("hide0");
 }
 
-
-
-// Drawing the 2 option the user has to choose 
-function draw() {
-  textSize(25)
-  text("Play", 100, 20);
-  fill(78, 142, 245);
-    background(0, 0, 48);
-    image(img, windowWidth*.15, windowHeight*.3, 300, 180); 
-    image(img, windowWidth*.55, windowHeight*.3, 300, 180); 
+function hideDiv(e){ 
+  e.classList.add('hide0');
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// Manipulating the DOM if about button is pressed 
+aboutBtn.addEventListener("click", ()=> {
+  hideDiv(sec1)
+  hideDiv(header)
+  showDiv(aboutSection)
+  showDiv(aboutContainer)
+  showDiv(aboutText)
+  showDiv(closeAbout)
+  console.log("open")
+}) 
+
+
+// Manipulating the DOM if the X button is pressed on the about section 
+closeAbout.addEventListener("click", ()=> { 
+  hideDiv(closeAbout)
+  hideDiv(aboutText)
+  hideDiv(aboutContainer)
+  hideDiv(aboutSection)
+  showDiv(sec1)
+  showDiv(header)
+  console.log('closed')
+})
 
 
 //Option 1  - Different functions to make new scereens on same javascript file 

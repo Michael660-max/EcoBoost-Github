@@ -1,4 +1,12 @@
 
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+html *{ 
+    font-family: 'VT323', monospace;/* Global Font */  
+}
+
 /* To prevent the user from being to able to highlight */
 *, *::before, *::after { 
     box-sizing: border-box;
@@ -18,11 +26,8 @@
 
 body{ 
     --hue: var(--hue-nuetral); 
-    height: 100vh;
-    width: 100vw;
     
     background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
-    
 
 }
 
@@ -37,32 +42,34 @@ body.wrong{
 }
 
 
-
 /* ------------------- Header   -----------------*/
 header{ 
     height: 30vh;
 
 }
 #mainHead{ 
+    
     box-shadow: 0 0 20px 2px;
     display: flex;
     justify-content: center; /* Centering content on the x-axis*/
     align-items: center; /* Centering content on the y-axis*/
     margin: auto;
-    font-size:2em;
+    font-size:3em;
     text-align: center
+    
 }
 
 #game3Name{ 
-    text-shadow: 2px 2px whitesmoke;
-
+    background: -webkit-linear-gradient(#0ec96c,white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
 }
 
 /* ------------------- Section2  -----------------*/
 
-
-
 .section{  /* The section that hold all game items and buttons */
+    font-size: lar;
     padding: 0;
     margin: 0;
     display: flex;
@@ -70,10 +77,12 @@ header{
     align-items: center;
     background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
     /* Main container for content */
+    
 }
 
 /* ------------------- Score    -----------------*/
 #scoreContainer{
+    font-size:2em;
     height: 50vh;
     padding: 20px;
     margin-right: 5px;
@@ -83,7 +92,7 @@ header{
 }
 
 
-/* ------------------- Questions and options   -----------------*/
+/* ------------------- Questions and options  DIV -----------------*/
 .container{ 
     height: 50vh;
     padding: 20px;
@@ -109,6 +118,12 @@ header{
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: -20px 0;
+}
+
+.name{ 
+    width: 100vw;
+    height: fit-content;
+    font-size: xx-large;
 }
 
 /*---------------------- Start Button and Next Button ----------------------*/
@@ -140,11 +155,8 @@ header{
     margin: auto;
     text-align: center;
     outline: black;
-    margin-bottom: 30px;
-    padding-top: 10px; 
-    padding-bottom: 10px;
-    padding-left: 20px; 
-    padding-right: 20px;
+    margin: 30px;
+    padding: 10px 20px 10px 20px;
     width: fit-content;
     border-radius: 18px;
     box-shadow: 0 3px rgba(0, 0, 0, 0.575);
@@ -162,22 +174,56 @@ header{
     
 }
 
-/* ---------------- All option buttons stylying ----------*/
+/* ---------------- OPTION BUTTONS FLIP CARDS  ----------*/
+
 .option {
-    background-color: rgb(214, 233, 226);
-    margin: auto;
+    position: relative; top: 60px;
+    margin-right: 5px;
+    margin-left: 5px;
     text-align: center;
-    outline: black;
-    margin-bottom: 30px;
-    width: 200px;
-    height: 5em;
+    width: 6em;
+    height: 6em;
+    border-radius: 18px;
+    cursor: pointer;  
+    font-family : inherit;
+    font-size: 2em;
+    perspective: 1000px;
+}
+
+.optionInner { 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: all .6s ease ;
+    border-radius: 18px;
+}
+
+.option:hover .optionInner{ 
+    border-radius: 18px;
+    transform: rotateY(180deg);
+}
+
+.flipFront, .flipBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    backface-visibility: hidden;
+  }
+  
+.flipFront {
     border-radius: 18px;
     box-shadow: 0 3px rgba(0, 0, 0, 0.575);
-    cursor: pointer;  
-    position: relative; top: 120px; 
-    font-family : inherit;
-    font-size: 1.5em;
-}
+  }
+  
+.flipBack {
+    border-radius: 18px;
+    background-color: rgb(214, 233, 226);
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    transform: rotateY(180deg);
+  }
 
 .option:hover {
     border-color: black;
@@ -186,11 +232,12 @@ header{
 .option:active{ 
      /* Link to next HTML page */
      box-shadow: rgba(0, 0, 0, 0.151);
-     transform: translateY(2px)
+     transform: translateY(4px)
 }
-/* ---------------- All option buttons stylying ----------*/
-
-
+.image{ 
+    width: 100%;
+    height: 100%;
+}
 
 .controls {
     display: flex;
@@ -202,21 +249,23 @@ header{
     display: none;
 }
 
+.text  { 
+    text-align: center;
+    margin-top: 30%;
+}
 /* ---------------- Instructions----------*/
 #instructions{ 
     padding: 10px;
     font-size: xx-large;
 }
 
-/* *{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
-*/
+ /* *{ outline: 2px solid rgba(245, 245, 245, 0.363); }  */
+
 
 #gg-menu:hover{ 
        opacity: 80%;
        cursor: pointer;
    }
-
-
 
 html{ 
    

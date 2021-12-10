@@ -6,16 +6,30 @@
     <title> Home</title>
     <!-- Linked to first stylesheet -->
     <link rel="stylesheet" href="style.css">
+
     <!-- Font Taken from this website-->
     <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <script src="script.js" defer></script>
+
 </head>
 
 <body>
-    <header>
+    <!-- About section  => hidden on default -->
+    <div id="aboutSection" class="hide0" >
+        <div id="aboutContainer" class="hide0">
+            <input type="image" src="Assets/close.png" id="closeAbout" class="hide0"/>
+            <div id="aboutText" class="hide0"> Lol! Welcome to Ecoboost, a set of games where you will take 
+                on real world environmental problems. Our mission: .... Donate: .... 
+            Controls: ....  
+            </div>
+        </div>
+    </div>  
+    <header id="header">
         <!-- Contain the Game Name , Logo and Dropdown menu?-->
         <div id="main_head"> EcoBoost</div>
+ 
         <div id="menu_container">
-            <button id="menu_btn"> Menu </button>
+            <div id="menu_btn"> Menu </div>
             
             <div class="dropdown_content">
                 <a href="" >Certificate </a>
@@ -25,11 +39,11 @@
         </div>        
     </header> 
     <!-- Main container for Play and Locker button -->
-    <section class="sec1">
+    <section id="sec1">
         <div class="container">
             <a class="button" href="game3.html"> Play</a> 
             <button class="button"> Locked </button>
-            <button class="button"> About </button>
+            <button id="aboutBtn" class="button"> About </button>
         </div>
 
     </section>
