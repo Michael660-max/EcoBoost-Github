@@ -20,28 +20,28 @@ let active = true
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Solar', src:'Assets/SOLAR.png' ,correct: true },
-          { text: 'Oil', src:'Assets/SOLAR.png' ,correct: false }
+          { text: 'Coal', src:'Assets/COAL.png' ,correct: false }
         ]
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
-          { text: 'Hydro',src:'Assets/SOLAR.png' , correct: true },
-          { text: 'Petroleum',src:'Assets/SOLAR.png' , correct: false },
+          { text: 'Hydro',src:'Assets/HYDRO.png', correct: true },
+          { text: 'Petroleum',src:'Assets/PETROLEUM.jpg' , correct: false },
 
         ]
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
-          { text: 'Wind', src:'Assets/SOLAR.png' ,correct: true },
-          { text: 'Natural Gases', src:'Assets/SOLAR.png' ,correct: false },
+          { text: 'Wind', src:'Assets/WIND.png' ,correct: true },
+          { text: 'Natural Gases', src:'Assets/NATURALGAS.jpg' ,correct: false },
         ]
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
-          { text: 'Nuclear',src:'Assets/SOLAR.png' , correct: false },
+          { text: 'Nuclear',src:'Assets/NUCLEAR.png' , correct: false },
           { text: 'Biomas', src:'Assets/SOLAR.png' ,correct: true }
         ]
       },
@@ -53,7 +53,11 @@ let active = true
          ]
        }
 
+// https://www.google.com/search?q=coal+pixel+art&sxsrf=AOaemvJNuaTvEntDPlONWQBj2ipd-lYLEA:1639154412261&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNmOWD1tn0AhUBCM0KHaD2CaUQ_AUoAXoECAEQAw&biw=1396&bih=695&dpr=2#imgrc=86Iz68C_tna3gM
+      
     ]
+
+  
     // Event listener to start game  and show instructions 
     startButton.addEventListener('click', showInstructions) 
     // Increments to the next question on "click"
@@ -168,7 +172,7 @@ let active = true
           showDiv(startButton)
           hideDiv(questionContainer)
           startButton.innerText = 'Next Game' 
-          startButton.addEventListener("click", window.location.href="index.html")     
+          startButton.addEventListener("click", () => {window.location.href="index.html"})     
         }
         else{
           showDiv(startButton)
