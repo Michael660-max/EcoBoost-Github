@@ -19,6 +19,7 @@ function hideDiv(e){
 
 // Manipulating the DOM if about button is pressed 
 aboutBtn.addEventListener("click", ()=> {
+  
   hideDiv(sec1)
   hideDiv(header)
   showDiv(aboutSection)
