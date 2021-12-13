@@ -9,6 +9,9 @@ const counter = document.getElementById('counter')
 const instructions = document.getElementById('instructions')
 const restartScreen = document.getElementById("restartScreen")
 const congratsScreen = document.getElementById("congratsScreen")
+var buttonSound1 = document.getElementById('audio1')
+var correctChoice = document.getElementById('audio2')
+var wrongChoice = document.getElementById('audio3')
 let active = true
 
 // Gets the id of the container and changes the content within 
@@ -56,13 +59,24 @@ let active = true
 // https://www.google.com/search?q=coal+pixel+art&sxsrf=AOaemvJNuaTvEntDPlONWQBj2ipd-lYLEA:1639154412261&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNmOWD1tn0AhUBCM0KHaD2CaUQ_AUoAXoECAEQAw&biw=1396&bih=695&dpr=2#imgrc=86Iz68C_tna3gM
       
     ]
-
-  
-    // Event listener to start game  and show instructions 
-    startButton.addEventListener('click', showInstructions) 
+    // =============== SOUND EFFECTS ============ 
+    function playButtonSound(){ 
+      buttonSound1.play()
+    }
+    function playCorrectSound(){ 
+      correctChoice.play()
+    }
+    function playWrongSound(){ 
+      wrongChoice.play()
+    }
+    // =============== Event listener to start game  and show instructions 
+    startButton.addEventListener('click', () => {
+      playButtonSound(),
+      showInstructions() }) 
     // Increments to the next question on "click"
     // As soon as the game starts function starts 
-    nextButton.addEventListener('click', () => { 
+    nextButton.addEventListener('click', () => {
+      playButtonSound() 
       currentQuestionIndex++
       active = true 
       setNextQuestion() 
@@ -81,7 +95,10 @@ let active = true
     //Show instruction of the game start game when start is pressed 
     function showInstructions() {
         instructions.classList.remove('hide')
-        startButton.addEventListener('click', () => { startGame(); hideDiv(instructions)}) // Fire start game 
+        startButton.addEventListener('click', () => { 
+          playButtonSound(), 
+          startGame(), 
+          hideDiv(instructions)}) // Fire start game 
       }
    //------------------- Function to start the game  --------------------
     
@@ -160,10 +177,12 @@ let active = true
       const selectedButton = e.target
       console.log(selectedButton)
       const correct = selectedButton.dataset.correct
-      if (active){ setStatusClass(document.body, correct) }
-      Array.from(optionButtons.children).forEach(button => {
-      setStatusClass(button, button.dataset.correct)
-      })
+      console.log(correct)
+      if (active){ 
+        setStatusClass(document.body, correct)}
+      //Array.from(optionButtons.children).forEach(button => {
+      //setStatusClass(button, button.dataset.correct)
+      //})
       if (shuffledQuestions.length > currentQuestionIndex + 1) {
         showDiv(nextButton)
       } 
@@ -172,7 +191,9 @@ let active = true
           showDiv(startButton)
           hideDiv(questionContainer)
           startButton.innerText = 'Next Game' 
-          startButton.addEventListener("click", () => {window.location.href="index.html"})     
+          startButton.addEventListener("click", () => {
+          playButtonSound() 
+          window.location.href="index.html"})     
         }
         else{
           showDiv(startButton)
@@ -186,15 +207,19 @@ let active = true
     
     function setStatusClass(element, correct) {
       clearStatusClass(element)
-      if (correct) {
-        if (active){score++}
-        counter.innerHTML = score
-        element.classList.add('correct')
-        //console.log('correct')
-      } 
-      else {
-        element.classList.add('wrong')
-        //console.log('wrong')
+      if (active) { 
+        if (correct) {
+          score++ 
+          playCorrectSound()
+          counter.innerHTML = score
+          element.classList.add('correct')
+          //console.log('correct')
+        } 
+        else{
+          playWrongSound()
+          element.classList.add('wrong')
+          //console.log('wrong')
+          }
       }
       active = false
     }
