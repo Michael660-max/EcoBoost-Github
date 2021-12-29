@@ -70,9 +70,8 @@ let active = true
       wrongChoice.play()
     }
     // =============== Event listener to start game  and show instructions 
-    startButton.addEventListener('click', () => {
-      playButtonSound(),
-      showInstructions() }) 
+    
+    startButton.addEventListener('click', () => { playButtonSound(), showInstructions()} )  
     // Increments to the next question on "click"
     // As soon as the game starts function starts 
     nextButton.addEventListener('click', () => {
@@ -91,15 +90,16 @@ let active = true
       e.classList.remove("hide")
     }
     
-
+   
     //Show instruction of the game start game when start is pressed 
     function showInstructions() {
         instructions.classList.remove('hide')
-        startButton.addEventListener('click', () => { 
-          playButtonSound(), 
-          startGame(), 
-          hideDiv(instructions)}) // Fire start game 
-      }
+        startButton.addEventListener('click', function(){ 
+                playButtonSound()              
+                startGame() 
+                hideDiv(instructions)
+              })}
+      
    //------------------- Function to start the game  --------------------
     
     function startGame() {
@@ -134,15 +134,14 @@ let active = true
         flipCardFront.appendChild(img)
         flipCardBack.appendChild(text)
         
-        //button.style.backgroundImage = answer.src
-          
+        //Setting the classes for each element  
         container.classList.add('option')
         card.classList.add('optionInner')
         flipCardFront.classList.add('flipFront')
         flipCardBack.classList.add('flipBack')    
         img.classList.add('image')  
         text.classList.add('text')
-   // Checking to see if answer is correct 
+        // For each element, check if answer is correct
         if (answer.correct && active) {
           flipCardBack.dataset.correct = answer.correct
           text.dataset.correct = answer.correct
@@ -190,12 +189,18 @@ let active = true
         if (score == 5){ 
           showDiv(startButton)
           hideDiv(questionContainer)
+          showDiv(instructions)
+          instructions.innerHTML = "Congratulation! You are now a clean energy expert. Click to move on to the next game."
           startButton.innerText = 'Next Game' 
           startButton.addEventListener("click", () => {
           playButtonSound() 
           window.location.href="index.html"})     
         }
         else{
+          clearStatusClass(document.body)
+          showDiv(instructions)
+          instructions.innerHTML = "Good Job! You scored: "+score.toString()+ 
+          " points, To move on to the next game you must answer all the question correct"
           showDiv(startButton)
           hideDiv(questionContainer)
           startButton.innerText = 'Restart'
@@ -204,6 +209,7 @@ let active = true
         }
       }
     }
+
     
     function setStatusClass(element, correct) {
       clearStatusClass(element)
